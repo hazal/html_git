@@ -1,0 +1,6 @@
+1 - git kurulu olacak
+2 - heroku gem yüklü olacak
+3 - "ssh-keygen -t rsa" ile ssh key üretilir
+4 - "heroku keys:add" komutu girince heroku eriþim email ve password girilecek.
+5 - tabii ki bunlar için heroku'da hesabýn olacak
+6 - "git clone git@heroku.com:ruby-tr.git" komutu bulunan klasörün içine "ruby-tr" klasörüne kopyayý alýr.

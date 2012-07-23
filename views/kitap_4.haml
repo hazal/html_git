@@ -1,0 +1,281 @@
+-# coding: UTF-8
+
+%div.row
+  %div.leaderboard
+    %h1 Bölüm 4 
+    %h4 
+      Yazar : 
+      %a(href="http://twitter.com/#!/huwcol" target="_blank") Huw Collingbourne
+      \- 
+      %a(href="http://www.sapphiresteel.com/" target="_blank") www.sapphiresteel.com
+    %h4 Çeviren : Ümit Kayacık
+
+%br
+
+%div.row
+  %div.span12
+    %h3  Array'ler ve Hash
+    %p 
+      Şimdiye kadar objeleri birer birer kullanıyorduk. Bu bölümde bir nesneler 
+      listesini nasıl üreteceğimizi göreceğiz. En yaygın kullanılan biri ile 
+      başlayacağız , bir array.
+    %h3 ARRAY
+    %h4.sag array0.rb
+    :coderay
+      #!Ruby
+      # The Book of Ruby - http://www.sapphiresteel.com
+      
+      def array_length( anArray )
+        return anArray.length
+      end
+      
+      a0 = [1,2,3,4,5]	
+      a1 = [1,'two', 3.0, array_length( a0 ) ]
+      
+      p( a0 )
+      p( a1 )
+      puts( "a1'in index #0 elemanı = \#{a1[0]}, #3 elemanı \#{a1[3]}" )
+    %br
+    
+    .alert.alert-info
+      %p
+        %b Array ne demek?
+      %p
+        Bir array, her biri indexlenebilen elemanlardan oluşan sıralı bir elemean 
+        listesidir. Ruby'de (birçok diğer dillerin aksine) bir Array içinde stringler, 
+        tam sayılar, noktalı sayılar, hatta metod çağrıları gibi farklı 
+        tiplerde nesneler bulunabilir:
+      %br
+      :coderay
+        #!Ruby
+        a1 = [1,'two', 3.0, array_length( a0 ) ]
+      %br
+      %p
+        Bir array içindeki ilk eleman index 0'a sahiptir, yani array'deki son eleman 
+        "toplam eleman sayısı - 1" indexine sahiptir. Yukarıda verilen 
+        %b a1 
+        array'inde ilk ve son elemanların nasıl alınacağı gösterilmiştir. 
+      %br
+      :coderay
+        #!Ruby
+        a1[0]  # 1. elamanı verir (index 0)
+        a1[3]  # 4. elemanı verir (index 3) 
+    %br
+    
+    %p
+      Daha önce array yapısını birkaç defa kullandık. Mesela, bölüm 2'deki 
+      %b 2adventure.rb' 
+      de Room nesnelerini saklamak için bir array kullandık:
+    %br
+    :coderay
+      #!Ruby
+      mymap = Map.new([room1,room2,room3])
+    %br
+    
+    %h3 ARRAY'LERİN ÜRETİLMESİ
+    %p
+      Genelde diğer birçok programlama dilleri gibi, Ruby de array'leri belirtmek 
+      için köşeli parantez kullanır. Köşeli parantez içinde nesneleri virgülle 
+      ayırarak ve bir değişkene eşitleyerek kolayca bir array üretebilirsiniz. 
+    %br
+    %h4.sag array1.rb
+    :coderay
+      #!Ruby
+      # The Book of Ruby - http://www.sapphiresteel.com
+
+      arr = ['a', 'b', 'c']
+
+      puts(arr[0])  # 'a' yazar
+      puts(arr[1])  # 'b' yazar
+      puts(arr[2])  # 'c' yazar
+
+      puts(arr[3]) # nil
+    %br
+    
+    %p
+      Ruby'deki diğer şeyler gibi array'ler de birer nesnedir. Tahmin 
+      edebileceğiniz gibi Array sınıfı içinde tanımlanırlar ve stringler gibi 0'dan 
+      itibaren indexlenirler. Bir array'in içindeki elemanlardan birine onun 
+      indexini köşeli parantez içine yazarak erşebilirsiniz. Eğer index geçersizse 
+      %b nil 
+      değer geri döner.
+    %br
+    
+    %h4.sag array2.rb
+    :coderay
+      #!Ruby
+      # The Book of Ruby - http://www.sapphiresteel.com
+      
+      def hello
+        return "hello world"
+      end
+        
+      x = [1+2, hello,  `dir`]  # array'de bir eşitlik, bir metod çağrısı ve bir string var
+      puts(x.inspect)           # Not: Eğer Windows kullanmıyorsanız 
+                                #  `dir` komutunu işletim sisteminize göre değiştirmelisiniz
+      
+      y = %w( bu bir string array )
+      puts(y.inspect)
+      
+      a = Array.new
+      puts("Array.new : " << a.inspect)
+      
+      a = Array.new(2)
+      puts("Array.new(2) : " << a.inspect)
+      
+      a = Array.new(2,"hello world")
+      puts(a.inspect)
+      
+      a = Array.new(2)
+      a[0]= Array.new(2,'hello')
+      a[1]= Array.new(2,'world')
+      puts(a.inspect)
+      
+      a = [ [1,2,3,4],
+          [5,6,7,8],
+          [9,10,11,12],
+          [13,14,15,16] ]
+      puts(a.inspect)
+      
+      a = Array.new([1,2,3]) 
+      puts(a.inspect)
+      
+      # Not: Yukarıdaki örnekte eğer yuvarlak parantez kullanmadan new() 
+      # ile array üretiyorsanız new ve köşeli parantez arasında bir boşluk 
+      # bırakmak zorundasınız.
+      # Bu çalışır:
+      #   a = Array.new [1,2,3]
+      # Bu çalışmaz!
+      #   a = Array.new[1,2,3]
+    %br
+    
+    %p
+      Array içinde veri tiplerinin karışık olmasına izin verilir ve eşitlik içermesine de 
+      Diyelim şu metodu tanımlamıştınız:
+    %br
+    :coderay
+      #!Ruby
+      def hello
+        return "hello world"
+      end
+    %br
+    
+    %p Şimdi şöyle bir array tanımlayabilirsiniz:
+    :coderay
+      #!Ruby
+      x = [1+2, hello, `dir`]
+    %br
+    
+    %p
+      Burada ilk eleman bir tamsayı olan 3, ve ikincisi string "hello world" (
+      %b hello 
+      metodunun sonucu dönen değer). Eğer bunu Windows'ta çalıştırırsanız 
+      üçüncü array elemanı bulunulan klasördeki dosyaları gösteren bir string 
+      olacaktır. Çünkü 
+      %b `dir` 
+      ters tırnaklı bir stringdir ve işletim sistemi tarafından çalıştırılır (3. bölüme bakınız). 
+      Eğer farklı bir işletim sistemindeyseniz son elemanı işletim sistemine uygun 
+      komut ile değiştirmeniz gerekir. 
+    %br
+    
+    %h4.sag dir_array.rb
+    :coderay
+      #!Ruby
+      # The Book of Ruby - http://www.sapphiresteel.com
+      
+      p( Dir.entries( 'C:\\' ) )
+    %br
+    
+    .alert.alert-info
+      %p
+        %b Dosya İsimlerinden bir Array Oluşturmak
+      %p
+        Birçok Ruby sınıfları bir array değeri geri dönen metodlara sahiptir. 
+        Mesela Dir sınıfı, diskteki klasörler üzerinde işlemler yapmaya yarar. 
+        Bu sınıfın 
+        %b entries 
+        metodu vardır. Bu metoda bir klasör adını verdiğinizde o klasördeki 
+        dosya isimlerinden oluşan bir array geri döner:
+      %br
+      
+      :coderay
+        #!Ruby
+        Dir.entries('C:\\')     # C:\ deki dosya isimlerini döner
+      %br
+    %br
+    
+    %p
+      Eğer tek tırnaklı stringlerden oluşan bir array yapmak ister ama üstüste 
+      tırnak açıp kapamak istemezseniz, 3. bölümde anlatıldığı gibi boşlukla 
+      ayırdığınız stringleri bir parantez içine koyup başına 
+      %b %w 
+      koyabilirsiniz (ya da çift tırnaklı için büyük harf 
+      %b %W 
+      ).
+    %br
+    
+    %h4.sag array2.rb
+    :coderay
+      #!Ruby
+      
+      y = %w( bu stringlerden oluşan bir array )
+      puts(y.inspect)
+      
+    %br
+    
+    %p
+      Array'leri ayrıca nesne üretim metodu 
+      %b new 
+      kullanarak da yapabilirsiniz. Seçenek olarak 
+      %b new 
+      metoduna bir sayı parametre vererek o kadar elemanlı bir array üretebilirsiniz 
+      (her elemanı nil değer olan). Ya da 2 argüman vererek ilkiyle eleman sayısını , 
+      ikinciyle elemanların değerini belirtirsiniz. Şöyle ki:
+    %br
+    
+    :coderay
+      #!Ruby
+      a = Array.new    # boş bir array
+      a = Array.new(2)   # [nil,nil]
+      a = Array.new(2,"hello world") # ["hello world","hello world"]
+    %br
+    
+    %h3 Çok Boyutlu Array'ler
+    %p
+      Çok boyutlu bir array üretmek için bir array üretip her elemanına başka 
+      array'ler ekleyebilirsiniz. Örneğin bu kod , iki elemanlı bir array üretir, her 
+      elemana kendisi array olan iki değer yüklenir:
+    %br
+    :coderay
+      #!Ruby
+      a = Array.new(2)
+      a[0]= Array.new(2,'hello')
+      a[1]= Array.new(2,'world')
+    %br
+    
+    
+    
+  
+
+    
+    64
+    %h3 Devam Edecek...
+
+    %p.orta Copyright © 2009 Huw Collingbourne
+    
+    %hr
+    %a.btn.btn-large.btn-success.pull-left(href="/kitap/3")
+      %i.icon-backward.icon-white
+      Bölüm 3 Stringler ve Range
+    %a.btn.btn-large.btn-success.pull-right(href="/kitap/5")
+      Bölüm 5 Çevrim ve İterasyonlar
+      %i.icon-forward.icon-white
+
+
+%hr
+
+#disqus_thread
+%script(type="text/javascript" async="true" src="http://ruby-tr.disqus.com/embed.js")
+  
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

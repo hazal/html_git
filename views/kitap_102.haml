@@ -1,0 +1,114 @@
+-# coding: UTF-8
+
+%div.row
+  %div.leaderboard
+    %h1 Programlamayı Öğrenmek 
+    %h4 Çeviren : Niyazi ATEŞ
+
+%br
+
+%div.row
+  %div.span12
+    %h4 
+      %a(href="/kitap/101")İçindekiler <<<
+    %br
+    %h2 Önsöz
+    %br
+    %h4 Acknowledgement From Translator :
+    %br
+    %p I would like to thank Mr. Chris PINE for his kindly permission to translation of this tutorial. I think  that it will be a milestone for Turkish Ruby Newbies learn to program .
+    %br
+    %p.sag 17. April.2010    Niyazi  ATEŞ   
+    %h4 
+      Original web site of this tutorial : 
+      %a(href="http://pine.fm/LearnToProgram" target="_blank") http://pine.fm/LearnToProgram
+    %br
+    %h3 Geleceğin Programcısı İçin Başlama Noktası :
+    %br
+    %br
+    %p 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbspHikayemize 2002 yılında başlıyor. Programlamayı insanlara öğretmeyi düşünürken bunu en iyi Ruby dili ile yapabileceğimi düşündüm. 
+      Ruby ; güçlü , zarif ve eğlenceli olması ile her zaman bizi heyecanlandırıyordu. 
+      Fakat bende uyandırdığı başka bir etki olarak ,   programlamaya başlamanın en iyi yolunun Ruby dili olacağını gördüm. 
+    %p
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbspNe yazık ki o zamanlar yeni başlayanlar için yeterli Ruby dökümanı yoktu. 
+      Ruby ile ilgilenen arkadaşlarla, yeni başlayanlar için böyle bir dökümanın gerekliliğini ve daha genel olarak da  insanlara programlamayı öğretmenin yollarını konuşurduk . 
+      Sonunda bunu o kadar çok düşündüm ve söyledim ki bir arkadaşım şöyle dedi : "Chris, konuşup durmak yerine neden kendin bunu yapmıyorsun?" Böylece başladım. 
+    %p
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbspBu hiç de kolay olmadı . Teoride herşey kolaydı ama programlamacı olmayanlara  bir alıştırma dökümanı hazırlamak düşündüğümden daha büyük çaba gerektiriyordu. 
+      (Yani programlamayı iyi bildiğim için bana kolay göründü.) 
+    %p
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbspBirkaç  yıl sonra işler yoluna girmeye başladı . Artık bitireceğime inanmıştım ve başka bir işe koyuldum , bu da dökümanın bitmesi ile beraber bunun kitap haline getirilmesiydi. 
+      Bu benim için fazla zor olmayacaktı herşey bitmişti ve hazırdı. Bazı düzeltmeler , ilave örnekler ve daha fazla alıştırma ekleyerek hazırlık yaptım. 
+    %p
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbspBu fazladan bir yılımı almıştı. Ama buna değerdi çünkü bir çok cesur yüreğin bana yardımı ile ortaya harika bir kitap çıktı. 
+      Buradaki okuyacağınız orjinal döküman ufak değişikliklerle 2004 yılında son halini almıştır. 
+    %br
+    %p
+      Daha fazlası ve son hali için :
+      %a(href="http://www.pragprog.com/titles/ltp2/learn-to-program-2nd-edition" target="_blank") http://www.pragprog.com/titles/ltp2/learn-to-program-2nd-edition
+    %br
+    %h3 Öğreticiler İçin Açıklama
+    %br
+    %p
+      &nbsp;&nbsp;&nbsp;&nbsp;Burada benim uyguladığım birkaç prensipten bahsedeceğim. 
+      Bunlar zaten zor olan programlama öğrenmeyi biraz daha kolaylaştıracaktır.
+    %p 
+      &nbsp;&nbsp;&nbsp;&nbsp;Öncelikle kavramları birbirinden olabildiğince ayrı tutmaya çalıştım,
+      böylece öğrenci sadece bir konuya odaklanabilirdi . Bu ilk başlarda çok zor oldu ama biraz pratik kazanınca sorun kalmadı. 
+      Bir öncelik sırası belirledim ve konuları buna göre sıraladım. 
+      Böylece her gelen yeni konu bir önceki konunun ortaya çıkardığı bir motivasyon sonucu oldu. 
+    %p
+      &nbsp;&nbsp;&nbsp;&nbsp;Diğer bir yöntem olarak her defasında bir uygulamanın sadece bir yönden çözümünü gösterdim .
+      Bu yeni başlayanlar için iyi bir alışkanlıktı.  
+      İlk başlarken bir problem çözümü için bir yol öğrenmek , iki yol öğrenmekten daha kolaydır. 
+    %p
+      &nbsp;&nbsp;&nbsp;&nbsp;Bu dökümanda  " Ruby dilinde herşey nesnedir," veya " sayılar ve kelimeler nesnelerdir," 
+      gibi cümleler kullanmaktan kaçındım , çünkü bunlar yeni öğrenciler için bir anlam ifade etmiyordu. 
+      Bunun yerine kelimelerden bahsettim ve bazen de nesnelerden sadece " programlardaki şeyler " olarak bahsettim.
+    %br
+    %h3 Orjinal Alıştırma Dökümanı Hakkında
+    %br
+    %p
+      &nbsp;&nbsp;&nbsp;&nbsp;Tabi ki bu sayfa da dahil olmak üzere orjinal dökümanın tüm sayfaları 
+      bir Ruby programı ile yazıldı:
+    %br   
+    %a(href="http://pine.fm/LearnToProgram/?ShowTutorialCode=true" target="_blank") http://pine.fm/LearnToProgram/?ShowTutorialCode=true
+    %br
+    %br
+    %p 
+      &nbsp;&nbsp;&nbsp;&nbsp;Böylece bütün kod örnekleri ve çıktılarının tam ve doğru olarak buraya yansıması sağlanmış oldu .
+      Yani örnek kodların çıktıları program içinden geldiği için kopyalama ile oluşabilecek hataların önüne geçildi . 
+      Örneklerin doğruluk testi kendi içinde yapılmış oldu.
+    %br
+    %h3 Teşekkürler
+    %br
+    %p
+      &nbsp;&nbsp;&nbsp;&nbsp;Son olarak bu çalışmamda bana destek olan ve ortaya mükemmel bir eser çıkmasını sağlayan başta 
+      Ruby\-talk e\-posta listesindekilere, değerli eleştirmenlerime; onlar olmasaydı yalnız başıma bu kalitede bir çalışma yapamazdım ve eşime teşekkür ederim. 
+      Matz a bu dili yarattığı için ve Pragmatic Programmers a kitabımı yayınladıkları için!
+    %br 
+    %p 
+      Eğer dökümanda bir hataya rastlarsanız, yorum yapmak isterseniz veya güzel alıştırma 
+      önerileriniz varsa ;
+      %br
+    %p
+      %a(href="/email/cris") Chris Pine'ye
+      veya 
+      %a(title="Niyazi Ateş" href="/email/hazal") Niyazi Ateş'e
+      e-posta atmanızı rica ederiz .
+    %br
+    %h4 Çevirmenin notu :
+    %br
+    %p 
+      Bu dökümanın Türkçeye  çevrilmesi için izin veren  Bay Chris Pine’ye 
+      Türkiye’de Ruby dilinin tanıtımına katkıda bulunduğu için teşekkür ederim . 
+    %br
+    %p.sag 17.Nisan. 2010    Niyazi ATEŞ
+    %p
+      Bu çevirinin orjinal ingilizcesini
+      %a(href="http://pine.fm/LearnToProgram" target="_blank") şuradan 
+      bulabilirsiniz :
+    %br
+      %a.btn.btn-success.btn-large.pull-left(href="/kitap/101") < İçindekiler
+      %a.btn.btn-success.btn-large.pull-right(href="/kitap/103") Başlarken >
